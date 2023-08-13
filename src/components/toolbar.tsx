@@ -16,7 +16,7 @@ import {
   UnorderedList,
 } from "../lib/icons";
 import { type Editor } from "@tiptap/react";
-import { Divider, Button } from "../utils/ui/button";
+import { Divider, Button } from "./ui/button";
 import { HightlightText, TextColorPicker } from "./color-picker";
 import useToolbar from "../hooks/useToolbar";
 

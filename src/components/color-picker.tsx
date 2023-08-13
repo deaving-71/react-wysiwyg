@@ -1,5 +1,5 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { Button } from "../utils/ui/button";
+import { Button } from "./ui/button";
 import { FontColors, Highlight, type IconType } from "../lib/icons";
 
 const colors = ["ffc078", "8ce99a", "74c0fc", "b197fc", "fc0606", "ffa8a8"];
