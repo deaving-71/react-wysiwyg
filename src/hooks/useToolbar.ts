@@ -67,6 +67,19 @@ const useToolbar = (editor: Editor) => {
     isActive: editor.isActive("codeBlock"),
   };
 
+  const TextColor = {
+    unsetter: () => baseCommand.unsetColor().run(),
+    setter: (color: string) => baseCommand.setColor(`#${color}`).run(),
+    isActive: editor.isActive("textStyle"),
+  };
+
+  const TextHighlight = {
+    unsetter: () => baseCommand.unsetHighlight().run(),
+    setter: (color: string) =>
+      baseCommand.setHighlight({ color: `#${color}` }).run(),
+    isActive: editor.isActive("highlight"),
+  };
+
   const Image = {
     setter: useCallback(() => {
       const url = window.prompt("URL");
@@ -122,6 +135,8 @@ const useToolbar = (editor: Editor) => {
     Link,
     Code,
     CodeBlock,
+    TextColor,
+    TextHighlight,
   };
 };
 

@@ -27,8 +27,8 @@ export default function Toolbar({ editor }: Props) {
 
   return (
     <div className="w-full flex items-center gap-2 p-2 bg-[#12141b]">
-      <TextColorPicker />
-      <HightlightText />
+      <TextColorPicker Tool={Tool.TextColor} />
+      <HightlightText Tool={Tool.TextHighlight} />
       <Divider />
       <Button onClick={Tool.Bold.toggler} disabled={Tool.Bold.disabled}>
         <Bold size={16} fill="white" />

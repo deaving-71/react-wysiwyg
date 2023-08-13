@@ -5,13 +5,12 @@ import Underline from "@tiptap/extension-underline";
 import Subscript from "@tiptap/extension-subscript";
 import Superscript from "@tiptap/extension-superscript";
 import TextAlign from "@tiptap/extension-text-align";
-import ListItem from "@tiptap/extension-list-item";
-import BulletList from "@tiptap/extension-bullet-list";
 import Image from "@tiptap/extension-image";
+import TextStyle from "@tiptap/extension-text-style";
+import Color from "@tiptap/extension-color";
 import Link from "@tiptap/extension-link";
-import Code from "@tiptap/extension-code";
+import Highlight from "@tiptap/extension-highlight";
 import { cn } from "../lib/utils";
-import CodeBlock from "@tiptap/extension-code-block";
 
 type Props = {};
 
@@ -22,11 +21,12 @@ export default function TextEditor(props: React.ComponentProps<"div">) {
       Underline,
       Subscript,
       Superscript,
-      ListItem,
-      BulletList,
+      Color,
+      Highlight.configure({
+        multicolor: true,
+      }),
+      TextStyle,
       Image,
-      Code,
-      CodeBlock,
       Link.configure({
         openOnClick: false,
       }),

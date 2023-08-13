@@ -2,49 +2,70 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { Button } from "../utils/ui/button";
 import { FontColors, Highlight, type IconType } from "../lib/icons";
 
-export function TextColorPicker() {
+const colors = new Map<string, string>([
+  ["Macaroni", "ffc078"],
+  ["GrannySmithApple", "8ce99a"],
+  ["Malibu", "74c0fc"],
+  ["Melrose", "b197fc"],
+  ["Red", "fc0606"],
+  ["CornFlowerLilac", "ffa8a8"],
+]);
+
+type Props = {
+  Tool: {
+    setter: (color: string) => void;
+    unsetter: () => void;
+    isActive: boolean;
+  };
+};
+
+export function TextColorPicker({ Tool }: Props) {
   return (
     <DropDownMenu Icon={FontColors}>
-      <div className="flex gap-3 flex-wrap w-[100px] rounded-lg shadow-md p-2 bg-[#121b14] border border-[#1c2b1f]">
-        <button>
-          <div className="w-3 h-3 bg-black rounded-sm"></div>
+      <div className="flex gap-1 flex-wrap w-[100px] rounded-lg shadow-md p-2 bg-[#12141b] border border-[#1c2b1f]">
+        <button onClick={Tool.unsetter}>
+          <div className="w-4 h-4 rounded-sm bg-white"></div>
         </button>
-        <button>
-          <div className="w-3 h-3 bg-red-500 rounded-sm"></div>
-        </button>
-        <button>
-          <div className="w-3 h-3 bg-green-500 rounded-sm"></div>
-        </button>
-        <button>
-          <div className="w-3 h-3 bg-blue-500 rounded-sm"></div>
-        </button>
-        <button>
-          <div className="w-3 h-3 bg-yellow-500 rounded-sm"></div>
-        </button>
+        {(() => {
+          const nodes: React.ReactNode[] = [];
+          colors.forEach((v, k) => {
+            nodes.push(
+              <button onClick={() => Tool.setter(v)}>
+                <div
+                  className="w-4 h-4 rounded-sm"
+                  style={{ backgroundColor: `#${v}` }}
+                ></div>
+              </button>
+            );
+          });
+          return nodes;
+        })()}
       </div>
     </DropDownMenu>
   );
 }
 
-export function HightlightText() {
+export function HightlightText({ Tool }: Props) {
   return (
     <DropDownMenu Icon={Highlight}>
-      <div className="flex gap-3 flex-wrap w-[100px] rounded-lg shadow-md p-2 bg-[#121b14] border border-[#1c2b1f]">
-        <button>
-          <div className="w-3 h-3 bg-black rounded-sm"></div>
+      <div className="flex gap-1 flex-wrap w-[100px] rounded-lg shadow-md p-2 bg-[#12141b] border border-[#1c2b1f]">
+        <button onClick={Tool.unsetter}>
+          <div className="w-4 h-4 rounded-sm bg-white"></div>
         </button>
-        <button>
-          <div className="w-3 h-3 bg-red-500 rounded-sm"></div>
-        </button>
-        <button>
-          <div className="w-3 h-3 bg-green-500 rounded-sm"></div>
-        </button>
-        <button>
-          <div className="w-3 h-3 bg-blue-500 rounded-sm"></div>
-        </button>
-        <button>
-          <div className="w-3 h-3 bg-yellow-500 rounded-sm"></div>
-        </button>
+        {(() => {
+          const nodes: React.ReactNode[] = [];
+          colors.forEach((v, k) => {
+            nodes.push(
+              <button onClick={() => Tool.setter(v)}>
+                <div
+                  className="w-4 h-4 rounded-sm"
+                  style={{ backgroundColor: `#${v}` }}
+                ></div>
+              </button>
+            );
+          });
+          return nodes;
+        })()}
       </div>
     </DropDownMenu>
   );
