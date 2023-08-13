@@ -2,14 +2,7 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { Button } from "../utils/ui/button";
 import { FontColors, Highlight, type IconType } from "../lib/icons";
 
-const colors = new Map<string, string>([
-  ["Macaroni", "ffc078"],
-  ["GrannySmithApple", "8ce99a"],
-  ["Malibu", "74c0fc"],
-  ["Melrose", "b197fc"],
-  ["Red", "fc0606"],
-  ["CornFlowerLilac", "ffa8a8"],
-]);
+const colors = ["ffc078", "8ce99a", "74c0fc", "b197fc", "fc0606", "ffa8a8"];
 
 type Props = {
   Tool: {
@@ -26,20 +19,14 @@ export function TextColorPicker({ Tool }: Props) {
         <button onClick={Tool.unsetter}>
           <div className="w-4 h-4 rounded-sm bg-white"></div>
         </button>
-        {(() => {
-          const nodes: React.ReactNode[] = [];
-          colors.forEach((v, k) => {
-            nodes.push(
-              <button onClick={() => Tool.setter(v)}>
-                <div
-                  className="w-4 h-4 rounded-sm"
-                  style={{ backgroundColor: `#${v}` }}
-                ></div>
-              </button>
-            );
-          });
-          return nodes;
-        })()}
+        {colors.map((color) => (
+          <button onClick={() => Tool.setter(color)}>
+            <div
+              className="w-4 h-4 rounded-sm"
+              style={{ backgroundColor: `#${color}` }}
+            ></div>
+          </button>
+        ))}
       </div>
     </DropDownMenu>
   );
@@ -52,20 +39,14 @@ export function HightlightText({ Tool }: Props) {
         <button onClick={Tool.unsetter}>
           <div className="w-4 h-4 rounded-sm bg-white"></div>
         </button>
-        {(() => {
-          const nodes: React.ReactNode[] = [];
-          colors.forEach((v, k) => {
-            nodes.push(
-              <button onClick={() => Tool.setter(v)}>
-                <div
-                  className="w-4 h-4 rounded-sm"
-                  style={{ backgroundColor: `#${v}` }}
-                ></div>
-              </button>
-            );
-          });
-          return nodes;
-        })()}
+        {colors.map((color) => (
+          <button onClick={() => Tool.setter(color)}>
+            <div
+              className="w-4 h-4 rounded-sm"
+              style={{ backgroundColor: `#${color}` }}
+            ></div>
+          </button>
+        ))}
       </div>
     </DropDownMenu>
   );
